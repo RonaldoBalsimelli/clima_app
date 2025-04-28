@@ -18,7 +18,7 @@ Este é um aplicativo de previsão do tempo que exibe a previsão atual e futura
 
 1. Clone o repositório:
     ```bash
-    git clone <URL_DO_REPOSITORIO>
+    git clone <https://github.com/RonaldoBalsimelli/clima_app>
     ```
 
 2. Instale as dependências:
