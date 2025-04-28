@@ -1,0 +1,54 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+  }
+  
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .weather-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+  }
+  
+  .weather-card h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .weather-details {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  
+  .weather-details p {
+    margin-bottom: 8px;
+  }
+  
+  /* Estilo para o botão */
+  .toggle-theme-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    outline: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: var(--text-color);
+  }
+  
