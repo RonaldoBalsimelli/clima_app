@@ -1,120 +1,191 @@
 :root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --card-bg: #ffffff;
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .weather-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 30px;
-  }
-  
-  .weather-card h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .weather-details {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-  
-  .weather-details p {
-    margin-bottom: 8px;
-  }
-  
-  /* Estilo para o botão de alternância de tema */
-  .toggle-theme-btn {
-    background: none;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    outline: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: var(--text-color);
-  }
-  
-  /* Estilo Dark Mode */
-  body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1e1e1e;
-  }
-  
-  body.dark-mode .weather-card {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-  }
-  
-  body.dark-mode input.form-control {
-    background-color: #333;
-    color: #fff;
-    border-color: #555;
-  }
-  
-  body.dark-mode .btn-primary {
-    background-color: #bb86fc;
-    border-color: #bb86fc;
-  }
-  
-  .weather-card {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .city-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-  }
-  
-  .weather-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .weather-item {
-    background-color: #f8f9fa;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.weather-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.weather-card h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.weather-details {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.weather-details p {
+  margin-bottom: 8px;
+}
+
+.toggle-theme-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  outline: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: var(--text-color);
+}
+
+/* Estilo Dark Mode */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+}
+
+body.dark-mode .weather-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark-mode input.form-control {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #bb86fc;
+  border-color: #bb86fc;
+}
+
+.weather-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.city-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.weather-item {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.weather-item strong {
+  font-weight: bold;
+}
+
+.weather-item:nth-child(odd) {
+  background-color: #e9ecef;
+}
+
+body.dark-mode .weather-card {
+  color: #000;
+}
+
+body.dark-mode .weather-details {
+  color: #000;
+}
+
+body.dark-mode .weather-card h2 {
+  color: #fff;
+}
+
+/* Estilo para o container da previsão dos próximos dias */
+.forecast-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Estilo para cada card de previsão */
+.forecast-card {
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 10px;
+  width: 150px;
+  max-width: 150px;
+  height: 250px; /* Corrigido: altura fixa para os cards */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+  flex: 0 0 auto; /* Evita que o último card cresça mais que os outros */
+  overflow: hidden; /* Previne que o conteúdo transborde */
+}
+
+.forecast-card img {
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.forecast-card .forecast-temp,
+.forecast-card .forecast-day {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.forecast-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .forecast-card {
+    width: 120px;
     padding: 10px;
-    border-radius: 5px;
+  }
+
+  .forecast-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .forecast-temp {
     font-size: 16px;
   }
-  
-  .weather-item strong {
-    font-weight: bold;
+
+  .forecast-day {
+    font-size: 14px;
   }
-  
-  .weather-item:nth-child(odd) {
-    background-color: #e9ecef;
+
+  .weather-details {
+    grid-template-columns: 1fr;
   }
-  
-  body.dark-mode .weather-card {
-    color: #000; /* Texto preto */
+
+  .weather-item {
+    font-size: 14px;
   }
-  
-  body.dark-mode .weather-details {
-    color: #000; /* Texto preto dentro das caixas */
+
+  .weather-card {
+    padding: 15px;
   }
-  
-  body.dark-mode .weather-card h2 {
-    color: #fff; /* Nome da cidade em branco no modo escuro */
-  }
-    
+}

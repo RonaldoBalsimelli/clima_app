@@ -1,8 +1,5 @@
 <div class="container mt-5">
-
-  <button class="toggle-theme-btn" id="toggle-theme-btn">
-    🌞
-  </button>
+  <button class="toggle-theme-btn" id="toggle-theme-btn">🌞</button>
   <h1 class="text-center mb-4">Previsão do Tempo</h1>
 
   <%= form_with url: '/search', method: 'post', local: true do %>
@@ -14,55 +11,45 @@
 
   <% if @temperature && @description %>
     <div class="weather-card">
-   
       <h2 class="text-center">
         <%= @city_name %> - <%= @country %>
-        <!-- Adicionando o ícone do clima -->
         <img src="https://openweathermap.org/img/wn/<%= @weather_icon %>@2x.png" alt="Ícone do clima" class="weather-icon">
       </h2>
-      
+
       <div class="weather-details">
-        <div class="weather-item">
-          <strong>Condição:</strong> <%= @description.present? ? @description.capitalize : 'Não disponível' %>
-        </div>
-        <div class="weather-item">
-          <strong>Temperatura Atual:</strong> <%= @temperature %>°C
-        </div>
-        <div class="weather-item">
-          <strong>Sensação Térmica:</strong> <%= @feels_like %>°C
-        </div>
-        <div class="weather-item">
-          <strong>Temperatura Mínima:</strong> <%= @temp_min %>°C
-        </div>
-        <div class="weather-item">
-          <strong>Temperatura Máxima:</strong> <%= @temp_max %>°C
-        </div>
-        <div class="weather-item">
-          <strong>Umidade:</strong> <%= @humidity %>%
-        </div>
-        <div class="weather-item">
-          <strong>Pressão Atmosférica:</strong> <%= @pressure %> hPa
-        </div>
-        <div class="weather-item">
-          <strong>Velocidade do Vento:</strong> <%= @wind_speed %> m/s
-        </div>
-        <div class="weather-item">
-          <strong>Direção do Vento:</strong> <%= @wind_deg %>°
-        </div>
-        <div class="weather-item">
-          <strong>Nuvens:</strong> <%= @clouds %>%
-        </div>
-        <div class="weather-item">
-          <strong>Visibilidade:</strong> <%= @visibility %> metros
-        </div>
-        <div class="weather-item">
-          <strong>Nascer do Sol:</strong> <%= @sunrise %> 
-        </div>
-        <div class="weather-item">
-          <strong>Pôr do Sol:</strong> <%= @sunset %> 
-        </div>
+        <div class="weather-item"><strong>Condição:</strong> <%= @description.present? ? @description.capitalize : 'Não disponível' %></div>
+        <div class="weather-item"><strong>Temperatura Atual:</strong> <%= @temperature %>°C</div>
+        <div class="weather-item"><strong>Sensação Térmica:</strong> <%= @feels_like %>°C</div>
+        <div class="weather-item"><strong>Temperatura Mínima:</strong> <%= @temp_min %>°C</div>
+        <div class="weather-item"><strong>Temperatura Máxima:</strong> <%= @temp_max %>°C</div>
+        <div class="weather-item"><strong>Umidade:</strong> <%= @humidity %>%</div>
+        <div class="weather-item"><strong>Pressão Atmosférica:</strong> <%= @pressure %> hPa</div>
+        <div class="weather-item"><strong>Velocidade do Vento:</strong> <%= @wind_speed %> m/s</div>
+        <div class="weather-item"><strong>Direção do Vento:</strong> <%= @wind_deg %>°</div>
+        <div class="weather-item"><strong>Nuvens:</strong> <%= @clouds %>%</div>
+        <div class="weather-item"><strong>Visibilidade:</strong> <%= @visibility %> metros</div>
+        <div class="weather-item"><strong>Nascer do Sol:</strong> <%= @sunrise %></div>
+        <div class="weather-item"><strong>Pôr do Sol:</strong> <%= @sunset %></div>
+        <div class="weather-item"><strong>Última Atualização:</strong> <%= @last_updated %></div>
       </div>
     </div>
+
+    <% if @forecast.present? %>
+      <h2 class="text-center mt-5">Previsão para os próximos dias</h2>
+
+      <div class="forecast-container mt-4">
+        <% @forecast.each do |date, data| %>
+          <div class="forecast-card">
+            <h5><%= date.strftime("%d/%m") %></h5>
+            <img src="https://openweathermap.org/img/wn/<%= data[:icon] %>@2x.png" alt="Ícone do clima" class="forecast-icon">
+            <p><%= data[:description].capitalize %></p>
+            <p><strong>Min:</strong> <%= data[:temp_min].round %>°C</p>
+            <p><strong>Max:</strong> <%= data[:temp_max].round %>°C</p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
   <% elsif flash[:alert] %>
     <div class="alert alert-danger mt-4">
       <%= flash[:alert] %>
