@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsão do Tempo</title>
+  <%= csrf_meta_tags %> <!-- CSRF Tag para proteger as requisições -->
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Previsão do Tempo</h1>
+
+    <!-- Formulário de busca -->
+    <%= form_with url: '/search', method: 'post', local: true do %>
+      <div class="mb-3">
+        <%= text_field_tag :city, nil, class: "form-control form-control-lg", placeholder: "Digite o nome da cidade", required: true %>
+      </div>
+      <%= submit_tag 'Buscar', class: "btn btn-primary btn-lg" %>
+    <% end %>
+
+    <!-- Exibição do resultado -->
+    <% if @weather %>
+      <div class="alert alert-info mt-4">
+        <h4>Temperatura: <%= @weather[:temperature] %>°C</h4>
+        <p><%= @weather[:description] %></p>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger mt-4">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

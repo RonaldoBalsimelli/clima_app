@@ -1,0 +1,14 @@
+<h1>Resultado da Busca</h1>
+
+<% if @weather.present? %>
+  <p>🌎 Cidade: <%= @weather[:city] %></p>
+  <p>🌡️ Temperatura: <%= @weather[:temperature] %>°C</p>
+  <p>🥶 Sensação térmica: <%= @weather[:feels_like] %>°C</p>
+  <p>🌤️ Condição: <%= @weather[:condition].capitalize %></p>
+<% else %>
+  <p>❗ Não foi possível obter o clima da cidade.</p>
+<% end %>
+
+<div style="margin-top: 20px;">
+  <%= link_to "Buscar outra cidade", root_path %>
+</div>

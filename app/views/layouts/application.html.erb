@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima App</title>
+
+  <!-- Link para o Bootstrap via CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Tag para o favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Certifique-se de carregar os arquivos de CSS necessários -->
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Scripts (Agora com `type="module"` para permitir uso de importações JS) -->
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
+</head>
+<body>
+  <div class="container mt-5">
+    <%= yield %>
+  </div>
+
+  <!-- jQuery (removendo o atributo de integridade) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  <!-- Popper.js (removendo o atributo de integridade) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+  <!-- Bootstrap JS (removendo o atributo de integridade) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
