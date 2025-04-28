@@ -15,6 +15,9 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <!-- Incluindo o arquivo CSS -->
+  <%= stylesheet_link_tag 'application', 'weather', media: 'all', 'data-turbo-track': 'reload' %>
+
   <!-- Scripts (Agora com `type="module"` para permitir uso de importações JS) -->
   <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
 </head>
@@ -23,25 +26,20 @@
     <%= yield %>
   </div>
 
-  <!-- jQuery (removendo o atributo de integridade) -->
+  <!-- jQuery e outros scripts do Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-  <!-- Popper.js (removendo o atributo de integridade) -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-
-  <!-- Bootstrap JS (removendo o atributo de integridade) -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <!-- Script de alternância do modo escuro -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.getElementById('toggle-theme-btn');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🌞';
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('toggle-theme-btn');
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleButton.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🌞';
+      });
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>

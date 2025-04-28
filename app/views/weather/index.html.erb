@@ -1,10 +1,9 @@
 <div class="container mt-5">
 
-<button class="toggle-theme-btn" id="toggle-theme-btn">
-🌞
-</button>
-<h1 class="text-center mb-4">Previsão do Tempo</h1>
-
+  <button class="toggle-theme-btn" id="toggle-theme-btn">
+    🌞
+  </button>
+  <h1 class="text-center mb-4">Previsão do Tempo</h1>
 
   <%= form_with url: '/search', method: 'post', local: true do %>
     <div class="mb-3">
@@ -15,21 +14,53 @@
 
   <% if @temperature && @description %>
     <div class="weather-card">
-      <h2><%= @city_name %> - <%= @country %></h2>
+   
+      <h2 class="text-center">
+        <%= @city_name %> - <%= @country %>
+        <!-- Adicionando o ícone do clima -->
+        <img src="https://openweathermap.org/img/wn/<%= @weather_icon %>@2x.png" alt="Ícone do clima" class="weather-icon">
+      </h2>
+      
       <div class="weather-details">
-        <p><strong>Condição:</strong> <%= @description.capitalize %></p>
-        <p><strong>Temperatura Atual:</strong> <%= @temperature %>°C</p>
-        <p><strong>Sensação Térmica:</strong> <%= @feels_like %>°C</p>
-        <p><strong>Temperatura Mínima:</strong> <%= @temp_min %>°C</p>
-        <p><strong>Temperatura Máxima:</strong> <%= @temp_max %>°C</p>
-        <p><strong>Umidade:</strong> <%= @humidity %>%</p>
-        <p><strong>Pressão Atmosférica:</strong> <%= @pressure %> hPa</p>
-        <p><strong>Velocidade do Vento:</strong> <%= @wind_speed %> m/s</p>
-        <p><strong>Direção do Vento:</strong> <%= @wind_deg %>°</p>
-        <p><strong>Nuvens:</strong> <%= @clouds %>%</p>
-        <p><strong>Visibilidade:</strong> <%= @visibility %> metros</p>
-        <p><strong>Nascer do Sol:</strong> <%= @sunrise %> </p>
-        <p><strong>Pôr do Sol:</strong> <%= @sunset %> </p>
+        <div class="weather-item">
+          <strong>Condição:</strong> <%= @description.present? ? @description.capitalize : 'Não disponível' %>
+        </div>
+        <div class="weather-item">
+          <strong>Temperatura Atual:</strong> <%= @temperature %>°C
+        </div>
+        <div class="weather-item">
+          <strong>Sensação Térmica:</strong> <%= @feels_like %>°C
+        </div>
+        <div class="weather-item">
+          <strong>Temperatura Mínima:</strong> <%= @temp_min %>°C
+        </div>
+        <div class="weather-item">
+          <strong>Temperatura Máxima:</strong> <%= @temp_max %>°C
+        </div>
+        <div class="weather-item">
+          <strong>Umidade:</strong> <%= @humidity %>%
+        </div>
+        <div class="weather-item">
+          <strong>Pressão Atmosférica:</strong> <%= @pressure %> hPa
+        </div>
+        <div class="weather-item">
+          <strong>Velocidade do Vento:</strong> <%= @wind_speed %> m/s
+        </div>
+        <div class="weather-item">
+          <strong>Direção do Vento:</strong> <%= @wind_deg %>°
+        </div>
+        <div class="weather-item">
+          <strong>Nuvens:</strong> <%= @clouds %>%
+        </div>
+        <div class="weather-item">
+          <strong>Visibilidade:</strong> <%= @visibility %> metros
+        </div>
+        <div class="weather-item">
+          <strong>Nascer do Sol:</strong> <%= @sunrise %> 
+        </div>
+        <div class="weather-item">
+          <strong>Pôr do Sol:</strong> <%= @sunset %> 
+        </div>
       </div>
     </div>
   <% elsif flash[:alert] %>

@@ -21,6 +21,9 @@ class WeatherController < ApplicationController
       @country = weather_data['sys']['country']
       @sunrise = Time.at(weather_data['sys']['sunrise']).strftime("%H:%M")
       @sunset = Time.at(weather_data['sys']['sunset']).strftime("%H:%M")
+
+      # Adicionando o ícone do clima
+      @weather_icon = weather_data['weather'].first['icon']
     else
       flash[:alert] = "Cidade não encontrada!"
     end

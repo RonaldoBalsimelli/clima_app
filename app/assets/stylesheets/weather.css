@@ -1,0 +1,120 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .weather-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+  }
+  
+  .weather-card h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .weather-details {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  
+  .weather-details p {
+    margin-bottom: 8px;
+  }
+  
+  /* Estilo para o botão de alternância de tema */
+  .toggle-theme-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    outline: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: var(--text-color);
+  }
+  
+  /* Estilo Dark Mode */
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+  }
+  
+  body.dark-mode .weather-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+  }
+  
+  body.dark-mode input.form-control {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+  }
+  
+  body.dark-mode .btn-primary {
+    background-color: #bb86fc;
+    border-color: #bb86fc;
+  }
+  
+  .weather-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .city-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .weather-item {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .weather-item strong {
+    font-weight: bold;
+  }
+  
+  .weather-item:nth-child(odd) {
+    background-color: #e9ecef;
+  }
+  
+  body.dark-mode .weather-card {
+    color: #000; /* Texto preto */
+  }
+  
+  body.dark-mode .weather-details {
+    color: #000; /* Texto preto dentro das caixas */
+  }
+  
+  body.dark-mode .weather-card h2 {
+    color: #fff; /* Nome da cidade em branco no modo escuro */
+  }
+    
