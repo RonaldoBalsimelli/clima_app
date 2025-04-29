@@ -1,16 +1,12 @@
 services:
   - type: web
-    name: clima-weather
+    name: clima-app
     env: ruby
     plan: free
-    buildCommand: "bundle install && bundle exec rake db:migrate"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    buildCommand: "bundle install && yarn install --check-files || true"
+    startCommand: "bundle exec rails server -b 0.0.0.0 -p $PORT"
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: clima-db
-          property: connectionString
       - key: RAILS_ENV
         value: production
-databases:
-  - name: clima-db
+      - key: SECRET_KEY_BASE
+        generateValue: true
