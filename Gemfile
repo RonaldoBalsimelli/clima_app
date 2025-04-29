@@ -36,5 +36,5 @@ end
 
 # Heroku (produção) usa PostgreSQL, apenas no Linux
 group :production do
-  gem "pg", "~> 1.4", platforms: :rubyS
+  gem "pg", "~> 1.4", platforms: :ruby
 end
