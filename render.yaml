@@ -1,5 +1,6 @@
 services:
   - type: web
+HEAD
     name: previsao-tempo
     env: ruby
     buildCommand: "bundle install && bundle exec rake assets:precompile db:migrate"
@@ -7,3 +8,15 @@ services:
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
+
+    name: clima-app
+    env: ruby
+    plan: free
+    buildCommand: "bundle install && yarn install --check-files || true"
+    startCommand: "bundle exec rails server -b 0.0.0.0 -p $PORT"
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: SECRET_KEY_BASE
+        generateValue: true
+ c357ecccab93036442709d008a032939c59e43fd
