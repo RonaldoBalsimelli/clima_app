@@ -19,7 +19,7 @@ group :development, :test do
   # gem "debug", platforms: %i[mri windows], require: "debug/prelude" # Não compatível com Ruby 3.2
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem "dotenv-rails", "~> 2.8.0"
+  gem "dotenv-rails", "~> 3.1.8"
 end
 
 group :development do
