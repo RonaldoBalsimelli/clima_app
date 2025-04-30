@@ -1,2 +1,8 @@
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: clima_app
+  username: clima_app_user
+  password: 1zwb17qyDhNtpPZsSFVDKpNQXRUYCS1T
+  host: dpg-d08le7vfte5s73c5j060-a.oregon-postgres.render.com
+  port: 5432
+  url: postgresql://clima_app_user:1zwb17qyDhNtpPZsSFVDKpNQXRUYCS1T@dpg-d08le7vfte5s73c5j060-a.oregon-postgres.render.com/clima_app

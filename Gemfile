@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.1" # ou a versão que você está usando
+ruby "3.2.0" # ou a versão que você está usando
 
 gem "rails", "~> 8.0.2"
 gem "propshaft"
@@ -13,12 +13,15 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 gem "tzinfo-data", platforms: %i[windows jruby]
+gem 'httparty'
+
 
 group :development, :test do
-  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  # Remover ou comentar a linha abaixo para evitar conflitos com o Ruby 3.2
+  # gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem "dotenv-rails"
+  gem 'dotenv-rails', '~> 2.8.0'
   gem "httparty"
 end
 
@@ -32,7 +35,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# Render/Heroku (produção) usa PostgreSQL no Linux
 group :production do
-  gem "pg", "~> 1.4", platforms: :ruby
+  gem "pg", "~> 1.4"
 end
