@@ -1,8 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: clima_app_user
+  password: <%= ENV['CLIMA_APP_DB_PASSWORD'] %>
+  host: dpg-d08le7vfte5s73c5j060-a.oregon-postgres.render.com
+  port: 5432
+  sslmode: require
+
+development:
+  <<: *default
+  database: clima_app_development
+
+test:
+  <<: *default
+  database: clima_app_test
+
 production:
   <<: *default
   database: clima_app
-  username: clima_app_user
-  password: 1zwb17qyDhNtpPZsSFVDKpNQXRUYCS1T
-  host: dpg-d08le7vfte5s73c5j060-a.oregon-postgres.render.com
-  port: 5432
   url: postgresql://clima_app_user:1zwb17qyDhNtpPZsSFVDKpNQXRUYCS1T@dpg-d08le7vfte5s73c5j060-a.oregon-postgres.render.com/clima_app

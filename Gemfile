@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.2.0" # ou a versão que você está usando
+ruby "3.2.0"
 
 gem "rails", "~> 8.0.2"
 gem "propshaft"
@@ -13,16 +13,13 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 gem "tzinfo-data", platforms: %i[windows jruby]
-gem 'httparty'
-
+gem "httparty"
 
 group :development, :test do
-  # Remover ou comentar a linha abaixo para evitar conflitos com o Ruby 3.2
-  # gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  # gem "debug", platforms: %i[mri windows], require: "debug/prelude" # Não compatível com Ruby 3.2
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem 'dotenv-rails', '~> 2.8.0'
-  gem "httparty"
+  gem "dotenv-rails", "~> 2.8.0"
 end
 
 group :development do
