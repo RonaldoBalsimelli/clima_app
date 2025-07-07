@@ -24,7 +24,7 @@ end
 
 group :development do
   gem "web-console"
-  gem "sqlite3", "~> 1.4"
+  gem "sqlite3", "~> 2.7"
 end
 
 group :test do
